@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>primefaces-demo</title>
+	</h:head>
+	<h:body>
+
+		<h:form>
+			<p:dataTable var="vertragshistorie"
+				value="#{rowGroupView.vertragshistories}"
+				expandableRowGroups="true" sortBy="#{vertragshistorie.aenderungsdatum}"
+				rowStyleClass="#{vertragshistorie.fieldsInRevision == 1 ? 'ui-helper-hidden' : ''}">
+				<p:headerRow>
+					<p:column colspan="3">
+						<h:outputText value="Anzahl: #{vertragshistorie.fieldsInRevision}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{vertragshistorie.aenderungsgrund}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{vertragshistorie.benutzer}" />
+					</p:column>
+					<p:column>
+						<h:outputText value="#{vertragshistorie.aenderungsdatum}" />
+					</p:column>
+				</p:headerRow>
+				<p:column headerText="Datenfeld">
+					<h:outputText value="#{vertragshistorie.datenfeld}" />
+				</p:column>
+				<p:column headerText="alter Wert">
+					<h:outputText value="#{vertragshistorie.alterWert}" />
+				</p:column>
+				<p:column headerText="neuer Wert">
+					<h:outputText value="#{vertragshistorie.neuerWert}" />
+				</p:column>
+				<p:column headerText="Änderungsgrund">
+					<h:outputText value="#{vertragshistorie.aenderungsgrund}" />
+				</p:column>
+				<p:column headerText="Benutzer">
+					<h:outputText value="#{vertragshistorie.benutzer}" />
+				</p:column>
+				<p:column headerText="Änderungsdatum">
+					<h:outputText value="#{vertragshistorie.aenderungsdatum}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>
